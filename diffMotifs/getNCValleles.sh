@@ -1,7 +1,6 @@
 #!/bin/bash
 
 ## Data pre-processing for differential motif analysis
-## First get NCVs in states of interest (for keep and removed NCVs) and liftOver to hg38.
 ## Then form grep-able input, first awk command.
 ## Next grep the CosmicWGS_NCV.tsv.gz to get the NCVs of interest and their WT and mutated alleles. 
 ## Print to outfile that will be used in python script
@@ -12,9 +11,7 @@ ln -s ~/cancer_annotation/enrichment/union_byChromHMM-18/allEIDs_1_TssA.bed_uniq
 
 f="allEIDs_1_TssA.bed_uniq"
 
-liftOver $f ~/genomes/hg19/hg19ToHg38.over.chain.gz ${f}_hg38 unm
-
-awk 'BEGIN { FS="r";} {print $2}' ${f}_hg38 | awk 'BEGIN { FS="\t"; } { print $1":"$2"-"$2 }' - > ${f}_hg38-list
+awk 'BEGIN { FS="r";} {print $2}' ${f} | awk 'BEGIN { FS="\t"; } { print $1":"$2"-"$2 }' - > ${f}-list
 
 for p in `cat ${f}_hg38-list`;
 do
