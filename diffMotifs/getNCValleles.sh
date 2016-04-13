@@ -7,7 +7,7 @@
 ## Print to outfile that will be used in python script
 ## for creating reference and mutated FASTA sequences.
 
-ln -s ~/cancer_annotation/enrichment/union_byChromHMM-18/allEIDs_14_TssBiv.bed_uniq .
+ln -s ~/cancer_annotation/enrichment/union_byChromHMM-18/allEIDs_14_TssBiv.bed_uniq . ## ln -s opens up connection to database
 ln -s ~/cancer_annotation/enrichment/union_byChromHMM-18/allEIDs_1_TssA.bed_uniq .
 
 f="allEIDs_1_TssA.bed_uniq"
